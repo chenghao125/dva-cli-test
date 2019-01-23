@@ -11,49 +11,49 @@ import { getPlainNode } from './utils/utils';
 //     return <Spin size="large" className={styles.globalSpin} />;
 // });
 
-function getRouteData(navData, path) {
-    if (!navData.some(item => item.layout === path) ||
-        !(navData.filter(item => item.layout === path)[0].children)) {
-        return null;
-    }
-    // const route = cloneDeep(navData.filter(item => item.layout === path)[0]);
-    const nodeList = getPlainNode(route.children);
-    return nodeList;
-}
-
-function RouterConfig({ history, app }) {
-    const passProps = {
-        app,
-        getRouteData: (path) => {
-            return getRouteData(navData, path);
-        },
-    };
-    return (
-        <Router history={history}>
-            <Switch>
-                <Route path="/" exact component={IndexPage} />
-                <Route path="/index" exact component={Index} />
-                <Route path="/menu" exact component={Manage} />
-            </Switch>
-        </Router>
-    );
-}
-
-export default RouterConfig;
-
-// const RouterConfig = [
-//     {
-//         path: '/',
-//         component: IndexPage,
-//         childRoutes: [
-//             { path: '/index', component: Index },
-//             {
-//                 path: '/menu',
-//                 component: Manage
-//             }
-//         ]
+// function getRouteData(navData, path) {
+//     if (!navData.some(item => item.layout === path) ||
+//         !(navData.filter(item => item.layout === path)[0].children)) {
+//         return null;
 //     }
-// ]
+//     // const route = cloneDeep(navData.filter(item => item.layout === path)[0]);
+//     const nodeList = getPlainNode(route.children);
+//     return nodeList;
+// }
+
+// function RouterConfig({ history, app }) {
+//     const passProps = {
+//         app,
+//         getRouteData: (path) => {
+//             return getRouteData(navData, path);
+//         },
+//     };
+//     return (
+//         <Router history={history}>
+//             <Switch>
+//                 <Route path="/" exact component={IndexPage} />
+//                 <Route path="/index" exact component={Index} />
+//                 <Route path="/menu" exact component={Manage} />
+//             </Switch>
+//         </Router>
+//     );
+// }
 
 // export default RouterConfig;
+
+const RouterConfig = [
+    {
+        path: '/',
+        component: IndexPage,
+        childRoutes: [
+            { path: '/index', component: Index },
+            {
+                path: '/menu',
+                component: Manage
+            }
+        ]
+    }
+]
+
+export default RouterConfig;
 // ReactDom.render(<Router routes={RouterConfig} />, document.body)

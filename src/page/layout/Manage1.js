@@ -20,8 +20,8 @@ class Manage1 extends React.Component {
     }
 
     render() {
-        const {getRouteData} = this.props;
-        console.info(getRouteData('BasicLayout'))
+        // const {getRouteData} = this.props;
+        // console.info(getRouteData('BasicLayout'))
         return (
             <Layout className={styles.manage}>
                 <Sider
