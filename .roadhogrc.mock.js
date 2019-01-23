@@ -1,15 +1,14 @@
 export default {
     "entry": "src/index.js",
-    port: 1234,
-    "proxy": {
-        "/api": {
-            "target": "http://172.31.18.251:8088/",
-            "changeOrigin": true,
-            "pathRewrite": {
-                "^/api": ""
-            }
-        }
-    },
+    // "proxy": {
+    //     "/api": {
+    //         "target": "http://172.31.18.171:8088/",
+    //         "changeOrigin": true,
+    //         "pathRewrite": {
+    //             "^/api": ""
+    //         }
+    //     }
+    // },
     "env": {
         "development":
             {
